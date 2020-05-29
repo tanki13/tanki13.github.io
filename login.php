@@ -1,0 +1,66 @@
+<?php 
+require_once('db2.php');
+session_start();
+if(isset($_POST["username"])&& isset($_POST["password"])){
+$username=$_POST['username'];
+$password=$_POST['password'];
+$sql = "SELECT ID, username FROM login WHERE username LIKE '$username' AND password='$password' LIMIT 1";
+$res = $conn->query($sql);
+
+if (empty($_POST['username']) || empty($_POST['password'])) {
+echo "Please input username and password!";
+}
+if($res){
+	echo "login succesfull to the DB! <BR>";//optional
+
+
+	if($res->num_rows>0){
+		print_r ($res);
+		$row= $res->fetch_object();
+		$_SESSION['username']=$row-> username;
+		$_SESSION['password']=$row-> password;
+		$_SESSION['is_loged_in']=true;
+		header ('Location: index2.php');
+	}else{
+		printf ("Wrong username or password!");
+		
+	}	
+	}else{
+		echo "Something is wrong";
+}
+
+}	
+if(isset($_SESSION['is_logged_in'])==true){
+	header('Location: index2.php');
+	exit();
+}
+?>
+
+<!DOCTYPE hmtl>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<div class="loginHeader">
+<h2> Welcome to my page</h2>
+</div>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div id="login">
+	<h2>Login form</h2>
+	<form class="serif"action="login.php" method="POST">
+	<p class ="a">Username:</p>
+	<input type="text" name="username">
+	
+	<p class ="a">Password:</p>
+	<input type="text" name="password">
+	<br>
+	<br>
+	<input type="submit" name="submit" value="Login!">
+	
+	</form>
+	</div>
+
+</body>
+</html>
