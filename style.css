@@ -1,0 +1,66 @@
+
+.serif {
+  font-family: "Times New Roman", Times, serif;
+}
+
+.login {
+	
+	
+	
+}
+p.a{
+font-family:Arial, Helvetica, sans-serif;
+	text-align:justify;
+}
+/* design only for login page
+ */
+.loginHeader {
+  background-color: #F1F1F1;
+  text-align: center;
+  padding: 20px;
+}
+/* designer heading for main pages 
+and a fixed navigation bar so if u scroll down u can still see it
+ */
+.mainHeader {
+position: fixed;
+top:0;
+width: 300px;
+padding:10px;
+  }
+
+#login
+{
+float:right;
+clear:right;
+margin: auto;
+width:400px;
+border-radius:10px;
+border:2px solid #ccc;
+padding:10px 30px 20px; 
+background-color:#b6e6ff;
+}
+input[type=text],input[type=password]
+
+{
+	
+width:75%;
+padding:10px;
+margin-top:4px;
+border:1px solid ;
+padding-left:5px;
+font-size:25px;
+}
+input[type=submit]
+
+{
+	
+width:75%;
+background-color:#2f90ff;
+color:#fff;
+border:2px solid #white;
+padding:15px;
+font-size:20px;
+cursor:pointer;
+border-radius:5px;
+}
