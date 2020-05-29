@@ -48,6 +48,9 @@ if(isset($_SESSION['is_logged_in'])==true){
 <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+	<?php 
+require_once('db2.php');
+?>
 	<div id="login">
 	<h2>Login form</h2>
 	<form class="serif"action="login.html" method="POST">
